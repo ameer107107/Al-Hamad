@@ -278,7 +278,7 @@ const logoutBtn = document.getElementById('logoutBtn');
 if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
         localStorage.clear();           // مسح بيانات تسجيل الدخول
-        window.location.href = '/login'; // إعادة التوجيه لصفحة تسجيل الدخول
+        window.location.href = '/login.html'; // إعادة التوجيه لصفحة تسجيل الدخول
     });
 }
 
