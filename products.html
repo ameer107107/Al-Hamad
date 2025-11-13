@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <script src ="./translate.js"></script>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-s le=1.0">
+    <title>MediStore - Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="top"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2 data-en="AH Store" data-ar=" AH Store">AH Store</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="/products.html" data-en="Products" data-ar="المنتجات" class="active">Products</a></li>
+                <li><a href="/about.html" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                <li><a href="/contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+            </ul>
+            <div class="header-controls">
+                <button id="darkModeBtn" onclick="toggleDarkMode()" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <span class="dark-mode-icon">🌙</span>
+                </button>
+                <button id="langBtn" onclick="toggleLanguage()" data-en="عربي" data-ar="English">عربي</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h1 data-en="Medical Products" data-ar="المنتجات الطبية">Medical Products</h1>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search products..." data-en-placeholder="Search products..." data-ar-placeholder="البحث عن المنتجات...">
+                <button type="button" id="clearSearch" data-en="Clear" data-ar="مسح">Clear</button>
+            </div>
+        </div>
+
+        <!-- Primary Classification Bar -->
+        <div class="classification-bar primary-bar" id="primaryBar">
+            <div class="category-buttons">
+                <button class="category-btn primary-btn" data-primary="medical" data-en="Medical Equipment" data-ar=" مواد عامة"> General materials</button>
+                <button class="category-btn primary-btn" data-primary="consumables" data-en="Consumable Supplies" data-ar=" مستلزمات طبية"> Medical supplies</button>
+            </div>
+        </div>
+
+        <!-- Secondary Classification Bar -->
+        <div class="classification-bar secondary-bar" id="secondaryBar" style="display: none;">
+            <div class="category-buttons">
+                <!-- Will be populated dynamically based on primary selection -->
+            </div>
+        </div>
+        
+        <!-- Tertiary Classification Bar -->
+        <div class="classification-bar tertiary-bar" id="tertiaryBar" style="display: none;">
+            <div class="category-buttons">
+                <!-- Will be populated dynamically based on secondary selection -->
+            </div>
+        </div>
+        
+
+        <div class="products-container" id="productsContainer">
+            <!-- Products will be populated here -->
+        </div>
+
+        <!-- Load More Button for Pagination -->
+        <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+            <button class="load-more-btn" id="loadMoreBtn" data-en="Load More Products" data-ar="تحميل المزيد من المنتجات">
+                <span data-en="Load More Products" data-ar="تحميل المزيد من المنتجات">Load More Products</span>
+            </button>
+        </div>
+    </main>
+    <!-- زر العودة للأعلى -->
+<a href="#top" id="back-to-top">🔝</a>
+
+
+
+
+
+    <footer>
+        <p data-en="© 2025 MediStore. All rights reserved." data-ar="© 2025 AH . جميع الحقوق محفوظة.">© 2025 AH. All rights reserved.</p>
+    </footer>
+    <script>
+        const backToTop = document.getElementById('back-to-top');
+    
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTop.style.opacity = '1';
+            backToTop.style.pointerEvents = 'auto';
+          } else {
+            backToTop.style.opacity = '0';
+            backToTop.style.pointerEvents = 'none';
+          }
+        });
+      </script>
+    <script src="script.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>

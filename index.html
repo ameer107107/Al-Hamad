@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script src ="./translate.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediStore - Medical Equipment & Healthcare Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script>
+    // التحقق من اتفاقية الاستخدام
+    document.addEventListener('DOMContentLoaded', function() {
+        const agreementAccepted = localStorage.getItem('agreementAccepted');
+        
+        if (agreementAccepted !== 'true') {
+            // إذا لم يوافق بعد، نوجهه لصفحة الاتفاقية
+            window.location.href = 'agreement.html';
+            return;
+        }
+        
+        // إذا وافق، نستمر في تحميل الموقع العادي
+        const savedLang = localStorage.getItem('lang') || 'ar';
+        document.documentElement.lang = savedLang;
+        document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+    });
+    </script>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2 data-en="AH Store" data-ar=" AH Store">AH Store</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-ar="الرئيسية" class="active">Home</a></li>
+                <li><a href="/products.html" data-en="Products" data-ar="المنتجات">Products</a></li>
+                <li><a href="/about.html" data-en="About Us" data-ar="من نحن">About</a></li>
+                <li><a href="/contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+            </ul>
+            <div class="header-controls">
+                <button id="darkModeBtn" onclick="toggleDarkMode()" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <span class="dark-mode-icon">🌙</span>
+                </button>
+                <button id="langBtn" onclick="toggleLanguage()" data-en="عربي" data-ar="English">عربي</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-en="AH Store" data-ar=" AH Store">AH Store</h1>
+            <p class="hero-subtitle" data-en="Professional Medical Equipment & Healthcare Products" data-ar="معدات طبية احترافية ومنتجات رعاية صحية">Professional Medical Equipment & Healthcare Products</p>
+            <a href="/products" class="browse-btn">
+                <span class="btn-icon">🏥</span>
+                <span class="btn-text" data-en="Browse Products" data-ar="تصفح المنتجات">Browse Products</span>
+            </a>
+        </div>
+    </section>
+
+    <main>
+        <br>
+        <br>
+        <br>
+        <!-- Best Selling Products Section -->
+        <section class="bestsellers-section">
+            <div class="section-container">
+                <h2 class="section-title" data-en="Best Selling Products" data-ar="المنتجات الأكثر مبيعاً">Best Selling Products</h2>
+                <p class="section-subtitle" data-en="Get amazing discounts on our most popular medical products" data-ar="احصل على خصومات مذهلة على منتجاتنا الطبية الأكثر شيوعاً">Get amazing discounts on our most popular medical products</p>
+                
+               <!--<div class="bestsellers-grid" id="bestSellersContainer">--> 
+                <section class="best-deals" >
+          
+                    <div class="sliders" id="slider">
+                      <div class="slider-tracks" id="slider-track">
+                        <!--  هنا بطاقاتك الأصلية فقط -->
+                        <!--  الرابط مال المنتج يتغير مع كل منتج حسب المنتجات الموجودة     -->
+                        <div class="product-cards"  >
+                          <img src="uploads/products/product1.jpg" alt="منتج 1">
+                          <h3>معجون أسنان</h3>
+                          <p class="prices">3,000 د.ع</p>
+                          <br>
+
+                          <a href="https://wa.me/9647901737635?text=Hello%2C%20I%20would%20like%20to%20order%3A%20s%20-%20Price%3A%20c" target="_blank" class="whatsapp-btn" data-en="Order via WhatsApp" data-ar="اطلب عبر واتساب">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                            </svg>
+                            Order via WhatsApp
+                        </a>                        </div>
+                  
+                        <div class="product-cards">
+                          <img src="uploads/products/product2.jpg" alt="منتج 2">
+                          <h3>مطهر اليدين</h3>
+                          <p class="prices">2,500 د.ع</p>
+                          <br>
+
+                          <a href="https://wa.me/9647901737635?text=Hello%2C%20I%20would%20like%20to%20order%3A%20s%20-%20Price%3A%20c" target="_blank" class="whatsapp-btn" data-en="Order via WhatsApp" data-ar="اطلب عبر واتساب">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                            </svg>
+                            Order via WhatsApp
+                        </a>                        </div>
+                  
+                        <div class="product-cards">
+                          <img src="uploads/products/880.jpeg" alt="منتج 3">
+                          <h3>كريم ترطيب</h3>
+                          <p class="prices">5,000 د.ع</p>
+                          <br>
+
+                          <a href="https://wa.me/9647901737635?text=Hello%2C%20I%20would%20like%20to%20order%3A%20s%20-%20Price%3A%20c" target="_blank" class="whatsapp-btn" data-en="Order via WhatsApp" data-ar="اطلب عبر واتساب">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                            </svg>
+                            Order via WhatsApp
+                        </a>                        </div>
+                  
+                        <div class="product-cards">
+                          <img src="uploads/products/product4.jpg" alt="منتج 4">
+                          <h3>مرطب شفاه</h3>
+                          <p class="prices">4,000 د.ع</p>
+                          <br>
+                          <a href="https://wa.me/9647901737635?text=Hello%2C%20I%20would%20like%20to%20order%3A%20s%20-%20Price%3A%20c" target="_blank" class="whatsapp-btn" data-en="Order via WhatsApp" data-ar="اطلب عبر واتساب">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                            </svg>
+                            Order via WhatsApp
+                        </a>
+                        </div>
+                  
+                      </div>
+                    </div>
+                  </section>
+                  
+
+        <!-- Why Choose MediStore Section -->
+        <section class="why-choose">
+            <div class="section-container">
+                <h2 class="section-title" data-en="Why Choose AH" data-ar="لماذا تختار  AH">Why Choose AH</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏥</div>
+                        <h3 data-en="Premium Quality" data-ar="جودة عالية">Premium Quality</h3>
+                        <p data-en="All our products meet the highest medical standards and certifications" data-ar="جميع منتجاتنا تلبي أعلى المعايير الطبية والشهادات">All our products meet the highest medical standards and certifications</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3 data-en="Expert Service" data-ar="خدمة خبراء">Expert Service</h3>
+                        <p data-en="Our team of medical professionals provides expert guidance and support" data-ar="فريقنا من المهنيين الطبيين يوفر الإرشاد والدعم المتخصص">Our team of medical professionals provides expert guidance and support</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📞</div>
+                        <h3 data-en="24/7 Support" data-ar="دعم على مدار الساعة">24/7 Support</h3>
+                        <p data-en="Round-the-clock customer service and technical support for all our clients" data-ar="خدمة عملاء ودعم فني على مدار الساعة لجميع عملائنا">Round-the-clock customer service and technical support for all our clients</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-en="© 2025 MediStore. All rights reserved." data-ar="© 2025 AH. جميع الحقوق محفوظة.">© 2025 AH. All rights reserved.</p>
+    </footer>
+    <script>
+        (function () {
+          const slider = document.getElementById('slider');
+          const track = document.getElementById('slider-track');
+        
+          if (!slider || !track) return;
+        
+          // نحسب عرض مجموعة البطاقات الأصلية (مرة واحدة)
+          function getTrackContentWidth() {
+            // نحسب العرض الكلي للعناصر children الحالية (يشمل margin-right عبر gap)
+            const children = Array.from(track.children);
+            let total = 0;
+            children.forEach(ch => {
+              const style = getComputedStyle(ch);
+              const marginRight = parseFloat(style.marginRight) || 0;
+              total += ch.getBoundingClientRect().width + marginRight;
+            });
+            return total;
+          }
+        
+          const originalChildren = Array.from(track.children);
+          let contentWidth = getTrackContentWidth();
+          const containerWidth = slider.getBoundingClientRect().width;
+        
+          let clones = 0;
+          while (contentWidth < containerWidth * 1.5) {
+            originalChildren.forEach(node => {
+              const clone = node.cloneNode(true);
+              track.appendChild(clone);
+            });
+            clones++;
+            contentWidth = getTrackContentWidth();
+            if (clones > 10) break;
+          }
+          let originalWidth = 0;
+          originalChildren.forEach(ch => {
+            const style = getComputedStyle(ch);
+            const marginRight = parseFloat(style.marginRight) || 0;
+            originalWidth += ch.getBoundingClientRect().width + marginRight;
+          });
+          
+          if (!originalWidth || originalWidth <= 0) {
+            originalWidth = contentWidth / 2;
+          }
+          track.style.setProperty('--scroll-width', originalWidth + 'px');
+          const speedPxPerSec = 50; 
+          const durationSec = Math.max(8, Math.round(originalWidth / speedPxPerSec));
+          track.style.animationDuration = durationSec + 's';
+          let resizeTimer;
+          window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              location.reload();
+            }, 250);
+          });
+        })();
+        </script>
+        <script src ="/whatsapp.js" ></script>
+    <script src="script.js"></script>
+</body>
+</html>

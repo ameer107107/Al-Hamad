@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتفاقية الاستخدام</title>
+    <style>
+        :root {
+            --primary-green: #3f8439;
+            --secondary-green: #11b023;
+            --bg-primary: #f8f9fa;
+            --bg-secondary: white;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --border-color: #f0f0f0;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --warning-bg: #fff3cd;
+            --warning-border: #ffeaa7;
+            --warning-text: #856404;
+            --success-gradient: linear-gradient(135deg, #3f8439 0%, #11b023 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .agreement-container {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--card-shadow);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+            border: 1px solid var(--border-color);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: var(--success-gradient);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .header .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            position: relative;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .header p {
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .warning-section {
+            background: var(--warning-bg);
+            border: 1px solid var(--warning-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .warning-title {
+            color: var(--warning-text);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-text {
+            color: var(--warning-text);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .terms-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .terms-title {
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .terms-list {
+            list-style: none;
+        }
+
+        .terms-list li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .terms-list li:last-child {
+            border-bottom: none;
+        }
+
+        .terms-list li::before {
+            content: "•";
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .language-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .language-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .language-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .language-btn {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .language-btn:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(63, 132, 57, 0.2);
+            color: var(--primary-green);
+        }
+
+        .language-btn.active {
+            border-color: var(--primary-green);
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(63, 132, 57, 0.3);
+        }
+
+        .language-btn .flag {
+            font-size: 20px;
+        }
+
+        .agreement-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .agreement-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--success-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .continue-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .continue-btn:hover::before {
+            left: 100%;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(63, 132, 57, 0.4);
+        }
+
+        .continue-btn:active {
+            transform: translateY(0);
+        }
+
+        .continue-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .continue-btn:disabled::before {
+            display: none;
+        }
+
+        /* تخصيص شريط التمرير */
+        .terms-section::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .terms-section::-webkit-scrollbar-track {
+            background: var(--border-color);
+            border-radius: 10px;
+        }
+
+        .terms-section::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 10px;
+        }
+
+        .terms-section::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-green);
+        }
+
+        /* تأثيرات responsive */
+        @media (max-width: 480px) {
+            .agreement-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 25px 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .language-buttons {
+                flex-direction: column;
+            }
+            
+            .language-btn {
+                padding: 12px 15px;
+            }
+        }
+
+        /* تأثيرات التركيز لإمكانية الوصول */
+        .language-btn:focus,
+        .continue-btn:focus {
+            outline: 2px solid var(--primary-green);
+            outline-offset: 2px;
+        }
+        .continue {
+            padding-right: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="agreement-container">
+        <div class="header">
+            <div class="icon">⚕️</div>
+            <h1 data-en="Welcome to Our Medical Store" data-ar="مرحباً بكم في متجرنا الطبي">مرحباً بكم في متجرنا الطبي</h1>
+            <p data-en="Please read the terms carefully" data-ar="يرجى قراءة الشروط بعناية">يرجى قراءة الشروط بعناية</p>
+        </div>
+
+        <div class="content">
+            <!-- قسم التحذير -->
+            <div class="warning-section">
+                <div class="warning-title">
+                    <span>⚠️</span>
+                    <span data-en="Important Warning" data-ar="تحذير هام">تحذير هام</span>
+                </div>
+                <p class="warning-text" data-en="Medicines and medical tools are the responsibility of the user. Always consult a doctor before using any medication." data-ar="الأدوية والأدوات الطبية تكون على مسؤولية المستخدم. يرجى استشارة الطبيب قبل استخدام أي دواء.">
+                    الأدوية والأدوات الطبية تكون على مسؤولية المستخدم. يرجى استشارة الطبيب قبل استخدام أي دواء.
+                </p>
+            </div>
+
+            <!-- قسم الشروط -->
+            <div class="terms-section">
+                <div class="terms-title" data-en="Terms of Use" data-ar="شروط الاستخدام">شروط الاستخدام</div>
+                <ul class="terms-list">
+                    <li data-en="You must be 18 years or older to use this service" data-ar="يجب أن يكون عمرك 18 سنة أو أكثر لاستخدام هذه الخدمة">يجب أن يكون عمرك 18 سنة أو أكثر لاستخدام هذه الخدمة</li>
+                    <li data-en="Consult a doctor before using any medication" data-ar="استشر طبيباً قبل استخدام أي دواء">استشر طبيباً قبل استخدام أي دواء</li>
+                    <li data-en="Follow the prescribed dosage instructions" data-ar="اتبع تعليمات الجرعة الموصوفة">اتبع تعليمات الجرعة الموصوفة</li>
+                    <li data-en="Store medications properly and away from children" data-ar="قم بتخزين الأدوية بشكل صحيح وبعيداً عن الأطفال">قم بتخزين الأدوية بشكل صحيح وبعيداً عن الأطفال</li>
+                    <li data-en="Report any side effects to your doctor immediately" data-ar="أبلغ عن أي آثار جانبية لطبيبك فوراً">أبلغ عن أي آثار جانبية لطبيبك فوراً</li>
+                    <li data-en="Do not share your medications with others" data-ar="لا تشارك أدويتك مع الآخرين">لا تشارك أدويتك مع الآخرين</li>
+                </ul>
+            </div>
+
+            <!-- قسم اختيار اللغة -->
+            <div class="language-section">
+                <div class="language-title" data-en="Choose Your Language" data-ar="اختر لغتك المفضلة">اختر لغتك المفضلة</div>
+                <div class="language-buttons">
+                    <button class="language-btn" id="arabicBtn" onclick="selectLanguage('ar')">
+                        <span class="flag">🇸🇦</span>
+                        <span data-en="Arabic" data-ar="العربية">العربية</span>
+                    </button>
+                    <button class="language-btn" id="englishBtn" onclick="selectLanguage('en')">
+                        <span class="flag">🇺🇸</span>
+                        <span data-en="English" data-ar="الإنجليزية">الإنجليزية</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- قسم الموافقة -->
+            <div class="agreement-section">
+                <p class="agreement-text" data-en="By clicking Continue, you agree to our Terms of Use and confirm that you have read the important warning above." data-ar="بالضغط على متابعة، فإنك توافق على شروط الاستخدام وتؤكد أنك قد قرأت التحذير الهام أعلاه.">
+                    بالضغط على متابعة، فإنك توافق على شروط الاستخدام وتؤكد أنك قد قرأت التحذير الهام أعلاه.
+                </p>
+                <a href="./terms.txt" class="continue" >شروط الاستخدام</a>
+            </div>
+
+            <!-- زر المتابعة -->
+            <button class="continue-btn" id="continueBtn" onclick="continueToSite()" disabled>
+                <span data-en="Continue to Website" data-ar="المتابعة إلى الموقع">المتابعة إلى الموقع</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let selectedLanguage = 'ar'; // اللغة الافتراضية
+
+        function selectLanguage(lang) {
+            selectedLanguage = lang;
+            
+            // تحديث الأزرار النشطة
+            document.getElementById('arabicBtn').classList.toggle('active', lang === 'ar');
+            document.getElementById('englishBtn').classList.toggle('active', lang === 'en');
+            
+            // تفعيل زر المتابعة
+            document.getElementById('continueBtn').disabled = false;
+            
+            // تحديث النصوص حسب اللغة المختارة
+            updateContentLanguage(lang);
+        }
+
+        function updateContentLanguage(lang) {
+            // تحديث جميع العناصر التي تحتوي على بيانات اللغة
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                if (lang === 'ar') {
+                    element.textContent = element.getAttribute('data-ar');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+
+            // تحديث اتجاه الصفحة
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+        }
+
+        function continueToSite() {
+            if (!selectedLanguage) {
+                alert('Please select a language');
+                return;
+            }
+
+            // حفظ اللغة في localStorage
+            localStorage.setItem('lang', selectedLanguage);
+            localStorage.setItem('agreementAccepted', 'true');
+
+            // التوجيه إلى الصفحة الرئيسية مع معلمة اللغة
+            window.location.href = `index.html?lang=${selectedLanguage}`;
+        }
+
+        // التهيئة عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // اختيار العربية افتراضياً
+            selectLanguage('ar');
+            
+            // التحقق إذا كان المستخدم قد وافق مسبقاً
+            const agreementAccepted = localStorage.getItem('agreementAccepted');
+            if (agreementAccepted === 'true') {
+                // إذا وافق مسبقاً، نوجهه مباشرة
+                const savedLang = localStorage.getItem('lang') || 'ar';
+                window.location.href = `index.html?lang=${savedLang}`;
+            }
+        });
+    </script>
+</body>
+</html>

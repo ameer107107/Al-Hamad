@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <script src ="./translate.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AH Store - About Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2 data-en="AH Store" data-ar="AH Store ">AH Store</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="/products.html" data-en="Products" data-ar="المنتجات">Products</a></li>
+                <li><a href="/about.html" data-en="About Us" data-ar="من نحن" class="active">About Us</a></li>
+                <li><a href="/contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+            </ul>
+            <div class="header-controls">
+                <button id="darkModeBtn" onclick="toggleDarkMode()" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <span class="dark-mode-icon">🌙</span>
+                </button>
+                <button id="langBtn" onclick="toggleLanguage()" data-en="عربي" data-ar="English">عربي</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h1 data-en="About Us" data-ar="من نحن">About Us</h1>
+        </div>
+
+        <div class="content-container">
+            <section class="about-section">
+                <h2 data-en="Our Mission" data-ar="مهمتنا">Our Mission</h2>
+                <p data-en="We are dedicated to providing high-quality medical supplies, devices, and medicines to healthcare professionals and institutions. Our commitment is to ensure the best healthcare solutions reach those who need them most." 
+                   data-ar="نحن ملتزمون بتوفير اللوازم الطبية والأجهزة والأدوية عالية الجودة للمهنيين الطبيين والمؤسسات الصحية. التزامنا هو ضمان وصول أفضل الحلول الطبية لمن يحتاجها أكثر.">
+                   We are dedicated to providing high-quality medical supplies, devices, and medicines to healthcare professionals and institutions. Our commitment is to ensure the best healthcare solutions reach those who need them most.
+                </p>
+            </section>
+
+            <section class="about-section">
+                <h2 data-en="Our Experience" data-ar="خبرتنا">Our Experience</h2>
+                <p data-en="With over 15 years of experience in the medical supply industry, we have built strong relationships with trusted manufacturers and suppliers worldwide. We understand the critical importance of reliable, safe, and effective medical products."
+                   data-ar="مع أكثر من 15 عامًا من الخبرة في صناعة اللوازم الطبية، قمنا ببناء علاقات قوية مع الشركات المصنعة والموردين الموثوقين في جميع أنحاء العالم. نحن نفهم الأهمية الحيوية للمنتجات الطبية الموثوقة والآمنة والفعالة.">
+                   With over 15 years of experience in the medical supply industry, we have built strong relationships with trusted manufacturers and suppliers worldwide. We understand the critical importance of reliable, safe, and effective medical products.
+                </p>
+            </section>
+
+            <section class="about-section">
+                <h2 data-en="Our Values" data-ar="قيمنا">Our Values</h2>
+                <ul class="values-list">
+                    <li data-en="Quality: We ensure all products meet the highest medical standards" 
+                        data-ar="الجودة: نضمن أن جميع المنتجات تلبي أعلى المعايير الطبية">
+                        Quality: We ensure all products meet the highest medical standards
+                    </li>
+                    <li data-en="Reliability: Consistent supply and dependable service" 
+                        data-ar="الموثوقية: إمداد ثابت وخدمة يمكن الاعتماد عليها">
+                        Reliability: Consistent supply and dependable service
+                    </li>
+                    <li data-en="Innovation: We stay updated with the latest medical technologies" 
+                        data-ar="الابتكار: نبقى مطلعين على أحدث التقنيات الطبية">
+                        Innovation: We stay updated with the latest medical technologies
+                    </li>
+                    <li data-en="Customer Focus: Your needs are our priority" 
+                        data-ar="التركيز على العميل: احتياجاتكم هي أولويتنا">
+                        Customer Focus: Your needs are our priority
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p data-en="© 2025 AH. All rights reserved." data-ar="© 2025 AH . جميع الحقوق محفوظة.">© 2025 AH Store. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
